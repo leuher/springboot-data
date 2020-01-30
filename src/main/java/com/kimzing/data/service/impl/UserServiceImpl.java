@@ -4,11 +4,9 @@ import com.kimzing.base.utils.bean.BeanUtil;
 import com.kimzing.base.utils.page.PageResult;
 import com.kimzing.base.utils.result.ApiResult;
 import com.kimzing.data.domain.dto.UserDTO;
-import com.kimzing.data.domain.event.UserCreatedEvent;
 import com.kimzing.data.domain.po.UserPO;
 import com.kimzing.data.repository.UserRepository;
 import com.kimzing.data.service.UserService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,18 +24,11 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserRepository userRepository;
 
-    @Resource
-    ApplicationContext applicationContext;
-
     @Override
     public ApiResult save(UserDTO userDTO) {
         UserPO userPO = BeanUtil.mapperBean(userDTO, UserPO.class);
-        userPO = userRepository.save(userPO);
-        userDTO = BeanUtil.mapperBean(userPO, UserDTO.class);
-
-        // 发布领域事件: 创建用户
-        applicationContext.publishEvent(new UserCreatedEvent(userDTO.getUsername()));
-        return ApiResult.success(userDTO);
+        userRepository.save(userPO);
+        return ApiResult.success();
     }
 
     @Override
