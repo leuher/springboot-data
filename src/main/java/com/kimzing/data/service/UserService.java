@@ -19,6 +19,6 @@ public interface UserService {
 
     ApiResult find(Long id);
 
-    ApiResult list(Integer pageNum, Integer pageSize);
+    ApiResult list();
 
 }

@@ -48,8 +48,8 @@ public class UserController {
 
     @LogKim(desc = "查找用户列表")
     @GetMapping("/list")
-    public ApiResult list(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-        return userService.list(pageNum, pageSize);
+    public ApiResult list() {
+        return userService.list();
     }
 
 }
