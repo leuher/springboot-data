@@ -4,6 +4,8 @@ import com.kimzing.base.utils.po.AbstractPO;
 import com.kimzing.data.domain.vo.GenderEnum;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 用户信息实体.
  *
@@ -22,5 +24,20 @@ public class UserPO extends AbstractPO {
     private Integer age;
 
     private GenderEnum gender;
+
+    /**
+     * 地址信息，和用户是一对一的关系
+     */
+    private AddressPO address;
+
+    /**
+     * 地址id
+     */
+    private Long addressId;
+
+    /**
+     * 用户拥有的车，和用户是一对多的关系
+     */
+    private List<CarPO> cars;
 
 }

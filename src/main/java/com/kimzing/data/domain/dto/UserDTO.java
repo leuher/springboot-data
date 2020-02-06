@@ -3,6 +3,8 @@ package com.kimzing.data.domain.dto;
 import com.kimzing.data.domain.vo.GenderEnum;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 用户信息实体.
  *
@@ -21,5 +23,9 @@ public class UserDTO {
     private Integer age;
 
     private GenderEnum gender;
+
+    private AddressDTO address;
+
+    private List<CarDTO> cars;
 
 }
