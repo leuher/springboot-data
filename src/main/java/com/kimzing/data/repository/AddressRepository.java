@@ -11,4 +11,10 @@ public interface AddressRepository {
      */
     @Select("SELECT * FROM `address` WHERE id = #{id}")
     AddressPO findAddressById(Long id);
+
+    /**
+     * 根据用户id查询地址
+     */
+    @Select("SELECT * FROM `address` WHERE user_id = #{userId}")
+    AddressPO findAddressByUserId(Long userId);
 }

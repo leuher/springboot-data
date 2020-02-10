@@ -11,6 +11,11 @@ public class AddressPO {
     private Long id;
 
     /**
+     * 用户ID
+     */
+    private Long userId;
+
+    /**
      * 省份
      */
     private String province;

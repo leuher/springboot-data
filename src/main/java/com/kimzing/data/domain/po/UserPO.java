@@ -31,11 +31,6 @@ public class UserPO extends AbstractPO {
     private AddressPO address;
 
     /**
-     * 地址id
-     */
-    private Long addressId;
-
-    /**
      * 用户拥有的车，和用户是一对多的关系
      */
     private List<CarPO> cars;

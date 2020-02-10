@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS `user`
     `password`    varchar(50) NOT NULL COMMENT '密码',
     `age`         int(2)      NOT NULL COMMENT '年龄',
     `gender`      varchar(10) NOT NULL COMMENT '性别',
-    `address_id`  int(11)              DEFAULT NULL COMMENT '地址',
     `creater`     varchar(20)          DEFAULT NULL COMMENT '创建人',
     `modifier`    varchar(20)          DEFAULT NULL COMMENT '更新人',
     `create_time` datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -19,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `user`
 CREATE TABLE IF NOT EXISTS `address`
 (
     `id`       int(11) NOT NULL AUTO_INCREMENT,
+    `user_id`  int(11) NOT NULL,
     `province` varchar(50) DEFAULT NULL,
     `city`     varchar(50) DEFAULT NULL,
     `street`   varchar(50) DEFAULT NULL,

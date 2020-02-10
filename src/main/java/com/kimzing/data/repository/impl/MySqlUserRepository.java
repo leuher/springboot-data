@@ -30,8 +30,8 @@ public interface MySqlUserRepository {
 
     @Select("SELECT * FROM `user` WHERE id = #{id}")
     @Results({
-            @Result(property = "address", column = "address_id",
-                    one = @One(select = "com.kimzing.data.repository.AddressRepository.findAddressById")),
+            @Result(property = "address", column = "id",
+                    one = @One(select = "com.kimzing.data.repository.AddressRepository.findAddressByUserId")),
             @Result(property = "cars", column = "id",
                     many = @Many(select = "com.kimzing.data.repository.CarRepository.findCarsByUserId")),
             @Result(property = "id", column = "id")
